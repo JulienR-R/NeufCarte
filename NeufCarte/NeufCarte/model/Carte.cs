@@ -12,7 +12,7 @@ namespace NeufCarte.model
 
     public enum Valeur
     {
-        As = 1, Deux, Trois, Quatre, Cinq, Six, Sept, Huit, Neuf, Dix, Valet, Dame, Roi
+        Deux = 2, Trois, Quatre, Cinq, Six, Sept, Huit, Neuf, Dix, Valet, Dame, Roi, As
     }
 
     public enum Couleur
