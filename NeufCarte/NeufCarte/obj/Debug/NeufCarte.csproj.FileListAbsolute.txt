@@ -1,0 +1,9 @@
+E:\GitHub\NeufCarte\NeufCarte\NeufCarte\obj\Debug\NeufCarte.csprojAssemblyReference.cache
+E:\GitHub\NeufCarte\NeufCarte\NeufCarte\obj\Debug\NeufCarte.Properties.Resources.resources
+E:\GitHub\NeufCarte\NeufCarte\NeufCarte\obj\Debug\NeufCarte.csproj.GenerateResource.cache
+E:\GitHub\NeufCarte\NeufCarte\NeufCarte\obj\Debug\NeufCarte.csproj.CoreCompileInputs.cache
+E:\GitHub\NeufCarte\NeufCarte\NeufCarte\bin\Debug\NeufCarte.exe.config
+E:\GitHub\NeufCarte\NeufCarte\NeufCarte\bin\Debug\NeufCarte.exe
+E:\GitHub\NeufCarte\NeufCarte\NeufCarte\bin\Debug\NeufCarte.pdb
+E:\GitHub\NeufCarte\NeufCarte\NeufCarte\obj\Debug\NeufCarte.exe
+E:\GitHub\NeufCarte\NeufCarte\NeufCarte\obj\Debug\NeufCarte.pdb

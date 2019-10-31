@@ -73,58 +73,6 @@ namespace NeufCarte.model
                 cartePlusHaute = carteJouee;
                 joueurPlusHaut = joueur;
             }
-            else
-            {
-                if(carteJouee.Couleur.Equals(tourJeu.CouleurCarte))
-                {
-                    if (carteJouee.Valeur > tourJeu.CartePlusHaute.Valeur)
-                    {
-                        cartePlusHaute = carteJouee;
-                        joueurPlusHaut = joueur;
-                    }
-                }else{
-                    bool menteur = false;
-                    foreach (ICarte carte in joueur.Main)
-                    {
-                        if (carte.Couleur.Equals(couleurCarte))
-                        {
-                            menteur = true;
-                            break;
-                        }
-                    }
-                    if (menteur)
-                    {
-                        //erreur
-                    }
-                    else
-                    {
-                        if (carteJouee.Couleur.Equals(atout))
-                        {
-                            if (carteJouee.Valeur > tourJeu.CartePlusHaute.Valeur)
-                            {
-                                cartePlusHaute = carteJouee;
-                                joueurPlusHaut = joueur;
-                            }
-                        }
-                        else
-                        {
-                            bool menteur2 = false;
-                            foreach (ICarte carte in joueur.Main)
-                            {
-                                if (carte.Couleur.Equals(atout))
-                                {
-                                    menteur2 = true;
-                                    break;
-                                }
-                            }
-                            if (menteur2)
-                            {
-                                //erreur
-                            }
-                        }
-                    }
-                }
-            }
             ITourJeu resultat = new TourJeu(
                     premierJoueur,
                     couleurCarte,

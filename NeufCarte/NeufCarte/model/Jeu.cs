@@ -10,6 +10,7 @@ namespace NeufCarte.model
     {
         List<IJoueur> ListJoueurs { get; set; }
         IPaquet lePaquet { get; set; }
+        Couleur atout { get; set; }
         ITourJeu tourJeu { get; set; }
 
         //Boolean auSuivant { get; set; }
@@ -25,13 +26,12 @@ namespace NeufCarte.model
     {
         public List<IJoueur> ListJoueurs { get; set; }
         public IPaquet lePaquet { get; set; }
+        public Couleur atout {get; set;}
         public ITourJeu tourJeu { get; set; }
 
         //public Boolean auSuivant { get; set; }
 
         private int indexJoueurActuel;
-
-        private Couleur? atout = null;
 
         private const int leveeMilieu = 4;
 
@@ -114,10 +114,11 @@ namespace NeufCarte.model
 
         public void changerAtout()
         {
-            if (atout == null)
+            /*if (atout == null)
                 atout = Couleur.Coeur;
-            else if (atout == Couleur.Trefle)
-                atout = null;
+            else */if (atout == Couleur.Trefle)
+                //atout = null;
+                atout = Couleur.Coeur;
             else
                 atout = (Couleur)((int)atout + 1);
         }
@@ -149,8 +150,61 @@ namespace NeufCarte.model
             }
             else
             {
-                tourJeu = JoueurActuel.Jouer(tourJeu, JoueurActuel, carteSelected);
-                setProchainJoueur();
+                bool plusFort = false;
+                bool menteur = false;
+                if (tourJeu.PremierJoueur != null){
+                    if (carteSelected.Couleur.Equals(tourJeu.CouleurCarte))
+                    {
+                        if (carteSelected.Valeur > tourJeu.CartePlusHaute.Valeur)
+                        {
+                            plusFort = true;
+                        }
+                    }
+                    else
+                    {
+                        foreach (ICarte carte in JoueurActuel.Main)
+                        {
+                            if (carte.Couleur.Equals(tourJeu.CouleurCarte))
+                            {
+                                menteur = true;
+                            }
+                        }
+                        if (carteSelected.Couleur.Equals(atout))
+                        {
+                            if (carteSelected.Valeur > tourJeu.CartePlusHaute.Valeur)
+                            {
+                                plusFort = true;
+                            }
+                        }
+                        else
+                        {
+                            foreach (ICarte carte in JoueurActuel.Main)
+                            {
+                                if (carte.Couleur.Equals(atout))
+                                {
+                                    menteur = true;
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    plusFort = true;
+                }
+                if (menteur)
+                {
+                    //erreur
+                } else if (plusFort)
+                {
+                    tourJeu = JoueurActuel.Jouer(tourJeu, JoueurActuel, carteSelected);
+                    setProchainJoueur();
+                }
+                else
+                {
+                    setProchainJoueur();
+                }
+                
             }
             return tourJeu;
         }
@@ -165,17 +219,43 @@ namespace NeufCarte.model
             {
                 return null;
             }
-            IJoueur adversaire = null;
-            while (adversaire == null)
+            ICarte carteSelect;
+            if (tourJeu.PremierJoueur == null)
             {
-                int randInt = rand.Next(0, ListJoueurs.Count);
-                if (ListJoueurs[randInt] != JoueurActuel)
+                int randInd = rand.Next(0, JoueurActuel.Main.Count);
+                carteSelect = JoueurActuel.Main[randInd];
+            }
+            else
+            {
+                List<ICarte> possibleMain = new List<ICarte>();
+                foreach (ICarte carte in JoueurActuel.Main)
                 {
-                    adversaire = ListJoueurs[randInt];
+                    if (carte.Couleur.Equals(tourJeu.CouleurCarte))
+                    {
+                        possibleMain.Add(carte);
+                    }
+                }
+                if(possibleMain.Count == 0)
+                {
+                    foreach (ICarte carte in JoueurActuel.Main)
+                    {
+                        if (carte.Couleur.Equals(atout))
+                        {
+                            possibleMain.Add(carte);
+                        }
+                    }
+                }
+                if (possibleMain.Count == 0)
+                {
+                    int randInd = rand.Next(0, JoueurActuel.Main.Count);
+                    carteSelect = JoueurActuel.Main[randInd];
+                }
+                else
+                {
+                    int randInd = rand.Next(0, possibleMain.Count);
+                    carteSelect = possibleMain[randInd];
                 }
             }
-            int randInd = rand.Next(0, JoueurActuel.Main.Count);
-            ICarte carteSelect = JoueurActuel.Main[randInd];
             return ProchainTour(carteSelect);
         }
 
