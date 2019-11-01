@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\NeufCarte",
+    "\\NeufCarte\\NeufCarte",
+    "\\NeufCarte\\NeufCarte\\model",
+    "\\NeufCarte\\NeufCarte\\vue"
   ],
+  "SelectedNode": "\\NeufCarte\\NeufCarte.sln",
   "PreviewInSolutionExplorer": false
 }
