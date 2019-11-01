@@ -17,3 +17,13 @@ C:\Users\happi\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\obj\Debug\Ne
 C:\Users\happi\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\bin\Debug\NeufCarte.exe.config
 C:\Users\happi\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\bin\Debug\NeufCarte.exe
 C:\Users\happi\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\bin\Debug\NeufCarte.pdb
+C:\Users\mathh\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\bin\Debug\NeufCarte.exe.config
+C:\Users\mathh\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\bin\Debug\NeufCarte.exe
+C:\Users\mathh\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\bin\Debug\NeufCarte.pdb
+C:\Users\mathh\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\obj\Debug\NeufCarte.csprojAssemblyReference.cache
+C:\Users\mathh\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\obj\Debug\NeufCarte.Form1.resources
+C:\Users\mathh\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\obj\Debug\NeufCarte.Menu_Form.resources
+C:\Users\mathh\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\obj\Debug\NeufCarte.Properties.Resources.resources
+C:\Users\mathh\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\obj\Debug\NeufCarte.csproj.GenerateResource.cache
+C:\Users\mathh\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\obj\Debug\NeufCarte.exe
+C:\Users\mathh\Source\Repos\JulienR-R\NeufCarte\NeufCarte\NeufCarte\obj\Debug\NeufCarte.pdb
