@@ -45,13 +45,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="vue\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vue\Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vue\IJoueurCourant.cs" />
+    <Compile Include="vue\Menu_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vue\Menu_Form.designer.cs">
+      <DependentUpon>Menu_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="model\Carte.cs" />
     <Compile Include="model\Jeu.cs" />
     <Compile Include="model\Joueur.cs" />
     <Compile Include="model\Paquet.cs" />
     <Compile Include="model\TourJeu.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="vue\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="vue\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vue\Menu_Form.resx">
+      <DependentUpon>Menu_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,7 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="presentation\" />
-    <Folder Include="vue\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
