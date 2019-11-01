@@ -16,10 +16,6 @@ namespace NeufCarte
     {
         private readonly IJoueurCourant vueJoueurCourant;
 
-        private static string nomJoueur = Menu_Form.playerName;
-        Joueur joueur = new Joueur(nomJoueur);
-        Jeu jeu = new Jeu(4, nomJoueur); 
-
         public Form1()
         {
             InitializeComponent();
@@ -28,10 +24,17 @@ namespace NeufCarte
         private void Form1_Load(object sender, EventArgs e)
         {
             
+            string nomJoueur = Menu_Form.playerName;
+            Joueur joueur = new Joueur(nomJoueur);
             lbl_playerName.Text = Menu_Form.playerName;
+            Jeu jeu = new Jeu(4, nomJoueur);
+
+
+                
+
 
             //Aller chercher la main du joueur et afficher dans la listBox
-            foreach (Joueur j in jeu.ListJoueurs)
+            foreach(Joueur j in jeu.ListJoueurs)
             {
                 if (!j.IsAutomate)
                 {
@@ -63,9 +66,12 @@ namespace NeufCarte
                             }
                             //vueJoueurCourant.OtherPlayers = player.ToString();
                         }
+
                     }
-                }  
+                }
+                    
             }       
+
         }
 
         private void btn_sort_Click(object sender, EventArgs e)
@@ -74,32 +80,19 @@ namespace NeufCarte
 
         }
 
-        private void listBox_cards_DoubleClick(object sender, EventArgs e)
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (listBox_cards.SelectedItem != null)
-            {
-                //MessageBox.Show(listBox_cards.SelectedItem.ToString());
-                //MessageBox.Show(listBox_cards.SelectedIndex.ToString());
-                int index = listBox_cards.SelectedIndex;
-                foreach (Joueur j in jeu.ListJoueurs)
-                {
-                    if (!j.IsAutomate)
-                    {
-                        Carte carte = (Carte)j.Main.ElementAt(index);
-                        jeu.ProchainTour(carte);
-                        j.Main.Remove(carte);
-                        listBox_cards.Items.Remove(carte);
-                        lbl_cardPlayer.Text = carte.ToString();
-                        listBox_cards.Enabled = false;
-                    }
-                    if (j.IsAutomate)
-                    {
-                        Carte carte = (Carte)j.Main.ElementAt(index);
-                        jeu.ProchainTour();
-                        j.Main.Remove(carte);
-                    }
-                }
-            }
+            this.Close();
+        }
+
+        private void commentJouerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Les joueurs débutent le jeu avec 9 points. Le joueur qui arrive à 0 gagne." +
+                "\n\nVous devez fournir la sorte qui est demandé, sinon vous pouvez couper avec un atout." +
+                "\nSi vous ne pouvez pas couper, vous devez jeter une carte de votre choix." +
+                "\n\nL'ordre des atouts est : coeur, carreau, pique, puis trèfle." +
+                "\nVous avez besoin de 4 levées pour rester sans bouger (points)." +
+                "\n\nVous avez 5 levées vous descendez de 1 point, 3 levées vous montez de 1 point.");
         }
     }
 }
