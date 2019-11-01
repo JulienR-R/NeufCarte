@@ -47,7 +47,7 @@
             this.lbl_mainTitle.AutoSize = true;
             this.lbl_mainTitle.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_mainTitle.ForeColor = System.Drawing.Color.Gray;
-            this.lbl_mainTitle.Location = new System.Drawing.Point(283, 54);
+            this.lbl_mainTitle.Location = new System.Drawing.Point(295, 129);
             this.lbl_mainTitle.Name = "lbl_mainTitle";
             this.lbl_mainTitle.Size = new System.Drawing.Size(223, 37);
             this.lbl_mainTitle.TabIndex = 0;
@@ -59,7 +59,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(212, 155);
+            this.label1.Location = new System.Drawing.Point(215, 223);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(151, 21);
             this.label1.TabIndex = 1;
@@ -68,7 +68,8 @@
             // textBox_playerName
             // 
             this.textBox_playerName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_playerName.Location = new System.Drawing.Point(369, 155);
+            this.textBox_playerName.Location = new System.Drawing.Point(372, 223);
+            this.textBox_playerName.MaxLength = 12;
             this.textBox_playerName.Name = "textBox_playerName";
             this.textBox_playerName.Size = new System.Drawing.Size(192, 27);
             this.textBox_playerName.TabIndex = 2;
@@ -100,21 +101,23 @@
             // jouerToolStripMenuItem
             // 
             this.jouerToolStripMenuItem.Name = "jouerToolStripMenuItem";
-            this.jouerToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.jouerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.jouerToolStripMenuItem.Text = "Comment jouer";
+            this.jouerToolStripMenuItem.Click += new System.EventHandler(this.jouerToolStripMenuItem_Click);
             // 
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quitterToolStripMenuItem.Text = "Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(643, 335);
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(476, 266);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 46);
+            this.button1.Size = new System.Drawing.Size(88, 32);
             this.button1.TabIndex = 5;
             this.button1.Text = "Jouer";
             this.button1.UseVisualStyleBackColor = true;
@@ -134,7 +137,7 @@
             this.Controls.Add(this.lbl_mainTitle);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu_Form";
-            this.Text = "Menu_Form";
+            this.Text = "Le jeu du Neuf";
             this.Load += new System.EventHandler(this.Menu_Form_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
