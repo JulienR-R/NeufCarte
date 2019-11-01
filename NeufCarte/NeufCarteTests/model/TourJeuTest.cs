@@ -22,7 +22,7 @@ namespace NeufCarteTests.model
                                         couleurCarte,
                                         cartePlusHaute,
                                         joueurPlusHaut);
-            Assert.AreEqual(premierJoueur, tourJeu.JoueurPlusHaut);
+            Assert.AreEqual(premierJoueur, tourJeu.PremierJoueur);
             Assert.AreEqual(couleurCarte, tourJeu.CouleurCarte);
             Assert.AreEqual(cartePlusHaute, tourJeu.CartePlusHaute);
             Assert.AreEqual(joueurPlusHaut, tourJeu.JoueurPlusHaut);

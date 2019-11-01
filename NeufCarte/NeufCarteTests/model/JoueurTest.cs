@@ -44,10 +44,10 @@ namespace NeufCarteTests.model
             Joueur joueur = new Joueur();
             joueur.Main.Add(AsCarreau);
             ITourJeu jouer = joueur.Jouer(tourJeu, joueur, AsCarreau);
-            Assert.AreEqual(tourJeu.PremierJoueur, jouer.PremierJoueur);
-            Assert.AreEqual(tourJeu.CouleurCarte, jouer.CouleurCarte);
-            Assert.AreEqual(tourJeu.CartePlusHaute, jouer.CartePlusHaute);
-            Assert.AreEqual(tourJeu.JoueurPlusHaut, jouer.JoueurPlusHaut);
+            Assert.AreEqual(joueur, jouer.PremierJoueur);
+            Assert.AreEqual(AsCarreau.Couleur, jouer.CouleurCarte);
+            Assert.AreEqual(AsCarreau, jouer.CartePlusHaute);
+            Assert.AreEqual(joueur, jouer.JoueurPlusHaut);
         }
 
         [TestMethod()]
@@ -61,10 +61,10 @@ namespace NeufCarteTests.model
             Joueur joueur2 = new Joueur();
             joueur2.Main.Add(AsCarreau);
             ITourJeu jouer = joueur2.Jouer(tourJeu, joueur2, AsCarreau);
-            Assert.AreNotEqual(tourJeu.PremierJoueur, jouer.PremierJoueur);
-            Assert.AreNotEqual(tourJeu.CouleurCarte, jouer.CouleurCarte);
+            Assert.AreEqual(tourJeu.PremierJoueur, jouer.PremierJoueur);
+            Assert.AreEqual(tourJeu.CouleurCarte, jouer.CouleurCarte);
             Assert.AreNotEqual(tourJeu.CartePlusHaute, jouer.CartePlusHaute);
-            Assert.AreNotEqual(tourJeu.JoueurPlusHaut, jouer.JoueurPlusHaut);
+            Assert.AreEqual(tourJeu.JoueurPlusHaut, jouer.JoueurPlusHaut);
         }
     }
 

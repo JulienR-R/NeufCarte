@@ -68,7 +68,7 @@ namespace NeufCarteTests.model
             ITourJeu tourJeu = jeu.ProchainTour(joueurActif.Main[0]);
             Assert.IsNull(tourJeu);
         }
-
+        /*
         [TestMethod()]
         public void ProchainTourIntArgTest()
         {
@@ -85,6 +85,6 @@ namespace NeufCarteTests.model
             Console.WriteLine($"expected card: {expectedCard}");
             Console.WriteLine($"actual card: {tourJeu.CartePlusHaute}");
             Assert.AreEqual(expectedCard, tourJeu.CartePlusHaute);
-        }
+        }*/
     }
 }
