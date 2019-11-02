@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace NeufCarte.model
 {
@@ -26,7 +27,7 @@ namespace NeufCarte.model
     {
         public List<IJoueur> ListJoueurs { get; set; }
         public IPaquet lePaquet { get; set; }
-        public Couleur atout {get; set;}
+        public Couleur atout { get; set; }
         public ITourJeu tourJeu { get; set; }
 
         //public Boolean auSuivant { get; set; }
@@ -93,9 +94,11 @@ namespace NeufCarte.model
             foreach (IJoueur j in ListJoueurs)
             {
                 j.Pointage += leveeMilieu - j.Levees;
-                if(j.Pointage <= 0)
+                if (j.Pointage <= 0)
                 {
                     //win! (graphique)
+                    Console.WriteLine("You win");
+                    MessageBox.Show("You win!");
                 }
             }
         }
@@ -116,7 +119,8 @@ namespace NeufCarte.model
         {
             /*if (atout == null)
                 atout = Couleur.Coeur;
-            else */if (atout == Couleur.Trefle)
+            else */
+            if (atout == Couleur.Trefle)
                 //atout = null;
                 atout = Couleur.Coeur;
             else
@@ -152,7 +156,8 @@ namespace NeufCarte.model
             {
                 bool plusFort = false;
                 bool menteur = false;
-                if (tourJeu.PremierJoueur != null){
+                if (tourJeu.PremierJoueur != null)
+                {
                     if (carteSelected.Couleur.Equals(tourJeu.CouleurCarte))
                     {
                         if (carteSelected.Valeur > tourJeu.CartePlusHaute.Valeur)
@@ -195,7 +200,8 @@ namespace NeufCarte.model
                 if (menteur)
                 {
                     //erreur
-                } else if (plusFort)
+                }
+                else if (plusFort)
                 {
                     tourJeu = JoueurActuel.Jouer(tourJeu, JoueurActuel, carteSelected);
                     setProchainJoueur();
@@ -204,7 +210,7 @@ namespace NeufCarte.model
                 {
                     setProchainJoueur();
                 }
-                
+
             }
             return tourJeu;
         }
@@ -235,7 +241,7 @@ namespace NeufCarte.model
                         possibleMain.Add(carte);
                     }
                 }
-                if(possibleMain.Count == 0)
+                if (possibleMain.Count == 0)
                 {
                     foreach (ICarte carte in JoueurActuel.Main)
                     {
@@ -256,7 +262,7 @@ namespace NeufCarte.model
                     carteSelect = possibleMain[randInd];
                 }
             }
-            return ProchainTour(carteSelect);
+            return tourJeu;
         }
 
 

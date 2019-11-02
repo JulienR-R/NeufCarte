@@ -14,7 +14,7 @@ namespace NeufCarte
 {
     public partial class Form1 : Form
     {
-        private readonly IJoueurCourant vueJoueurCourant;
+        //private readonly IJoueurCourant vueJoueurCourant;
 
         private static string nomJoueur = Menu_Form.playerName;
         Joueur joueur = new Joueur(nomJoueur);
@@ -30,13 +30,13 @@ namespace NeufCarte
             lbl_playerName.Text = Menu_Form.playerName;
 
             //Aller chercher la main du joueur et afficher dans la listBox
-            foreach(Joueur j in jeu.ListJoueurs)
+            foreach (Joueur j in jeu.ListJoueurs)
             {
                 if (!j.IsAutomate)
                 {
                     foreach (Carte c in j.Main)
                     {
-                       // vueJoueurCourant.PlayerCards = c.ToString();
+                        // vueJoueurCourant.PlayerCards = c.ToString();
                         listBox_cards.Items.Add(c);
                     }
 
@@ -44,19 +44,29 @@ namespace NeufCarte
                     {
                         if (player.IsAutomate)
                         {
-                            int count = jeu.ListJoueurs.Count -1;
+                            int count = jeu.ListJoueurs.Count - 1;
                             for (int i = 0; i <= count; i++)
                             {
 
                                 int nbCartes = jeu.ListJoueurs.ElementAt(i).Main.Count();
+                                int levee = jeu.ListJoueurs.ElementAt(i).Levees;
 
                                 var labels = Controls.Find("lbl_cartesNPC" + i, true);
-                                if(labels.Length > 0)
+                                if (labels.Length > 0)
                                 {
                                     var label = (Label)labels[0];
 
                                     label.Text = "Cartes: " + nbCartes;
-                                    
+
+                                }
+
+                                var labels2 = Controls.Find("lbl_leveeNPC" + i, true);
+                                if (labels2.Length > 0)
+                                {
+                                    var label2 = (Label)labels2[0];
+
+                                    label2.Text = levee + "";
+
                                 }
 
                             }
@@ -65,8 +75,8 @@ namespace NeufCarte
 
                     }
                 }
-                    
-            }       
+
+            }
 
         }
 
@@ -113,6 +123,36 @@ namespace NeufCarte
                         Carte carte = (Carte)j.Main.ElementAt(index);
                         //jeu.ProchainTour();
                         j.Main.Remove(carte);
+
+                        int count = jeu.ListJoueurs.Count;
+                        for (int i = 0; i < count; i++)
+                        {
+
+                            int nbCartes = jeu.ListJoueurs.ElementAt(i).Main.Count();
+                            //MessageBox.Show(jeu.ListJoueurs.ElementAt(i).Main.ToString());
+
+                            var labels = Controls.Find("lbl_cartesNPC" + i, true);
+                            if (labels.Length > 0)
+                            {
+                                var label = (Label)labels[0];
+
+                                label.Text = "Cartes: " + nbCartes;
+
+                            }
+
+                            var labels2 = Controls.Find("lbl_cardNPC" + i, true);
+                            if (labels2.Length > 0)
+                            {
+                                var label2 = (Label)labels2[0];
+                                Carte cartesNPC = (Carte)jeu.ListJoueurs.ElementAt(i).Main.ElementAt(i);
+                                label2.Text = cartesNPC.ToString();
+                            }
+
+                            //jeu.prochaineLevee();
+                            jeu.ProchainTour();
+                            jeu.finManche();
+
+                        }
                     }
                 }
             }
